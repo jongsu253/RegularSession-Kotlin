@@ -7,12 +7,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private val length: Int
+        get() = idEditText.length()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         clickButton.setOnClickListener {
-            logView.text = idEditText.text
+            logView.text = length.toString()
         }
     }
 }
