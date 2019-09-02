@@ -1,3 +1,5 @@
+import com.android.build.gradle.BaseExtension
+
 buildscript {
     repositories {
         google()
@@ -14,5 +16,20 @@ allprojects {
     repositories {
         google()
         jcenter()
+    }
+}
+
+val app = listOf("app")
+
+subprojects {
+    if (name in app) {
+        apply(plugin = "com.android.application")
+    }
+
+    apply(plugin = "kotlin-android")
+    apply(plugin = "kotlin-android-extensions")
+
+    configure<BaseExtension> {
+
     }
 }
