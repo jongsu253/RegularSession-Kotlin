@@ -46,5 +46,14 @@ subprojects {
         compileOnly(Config.Libs.Kotlin.jvm)
         compileOnly(Config.Libs.Kotlin.coroutine)
         compileOnly(Config.Libs.Kotlin.coroutineForAndroid)
+
+        api(Config.Libs.Androidx.appcompat)
+        api(Config.Libs.Androidx.coreKtx)
+
+        testImplementation(Config.Libs.Test.junit)
+        testImplementation(Config.Libs.Test.mockitoCore)
     }
 }
+
+fun DependencyHandlerScope.api(dependencyNotation: Any): Dependency? =
+    add("api", dependencyNotation)
