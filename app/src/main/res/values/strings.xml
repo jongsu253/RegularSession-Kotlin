@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HelloKotlin</string>
+    <string name="idHint">please input your id</string>
+    <string name="login">login</string>
 </resources>
