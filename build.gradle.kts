@@ -30,6 +30,11 @@ subprojects {
     apply(plugin = "kotlin-android-extensions")
 
     configure<BaseExtension> {
+        compileSdkVersion(Config.SdkVersions.compile)
 
+        defaultConfig {
+            targetSdkVersion(Config.SdkVersions.target)
+            minSdkVersion(Config.SdkVersions.min)
+        }
     }
 }
