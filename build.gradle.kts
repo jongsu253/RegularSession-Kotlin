@@ -1,5 +1,9 @@
 import com.android.build.gradle.BaseExtension
 
+plugins {
+    java
+}
+
 buildscript {
     repositories {
         google()
@@ -36,5 +40,11 @@ subprojects {
             targetSdkVersion(Config.SdkVersions.target)
             minSdkVersion(Config.SdkVersions.min)
         }
+    }
+
+    dependencies {
+        compileOnly(Config.Libs.Kotlin.jvm)
+        compileOnly(Config.Libs.Kotlin.coroutine)
+        compileOnly(Config.Libs.Kotlin.coroutineForAndroid)
     }
 }
