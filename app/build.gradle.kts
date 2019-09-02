@@ -1,19 +1,24 @@
-//android {
-//    buildToolsVersion "29.0.0"
-//    defaultConfig {
-//        applicationId "com.buzzvil.rs.hellokotlin"
-//        versionCode 1
-//        versionName "1.0"
-//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-//    }
-//    buildTypes {
-//        release {
-//            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//        }
-//    }
-//}
-//
-//dependencies {
-//    implementation fileTree(dir: 'libs', include: ['*.jar'])
-//}
+android {
+    buildToolsVersion("29.0.0")
+
+    defaultConfig {
+        applicationId = "com.buzzvil.rs.hellokotlin"
+        versionCode = appConfig.versionCode
+        versionName = appConfig.versionName
+    }
+
+    buildTypes {
+        named("release").configure {
+            isMinifyEnabled = true
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+        }
+        named("debug").configure {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+        }
+    }
+}
+
+dependencies {
+    api(fileTree("libs") { include("*.jar") })
+}
